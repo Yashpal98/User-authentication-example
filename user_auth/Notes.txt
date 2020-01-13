@@ -1,0 +1,42 @@
+1. By default Django use 'PBKDF2' algorithms for password hashing
+
+2.For more secure hasing algorithms
+  Install bcrypt and argon2
+  from using pip Install
+
+3. The first thing we need to take care of is setting up our ability to authenticate a User.
+  To do this we need to use some built-in apps and make sure they are under the INSTALLED_APPS list in settings.py
+
+4. Inside of settings.py you can then pass in the list of PASSWORD_HASHERS to try in the order you want to try them.
+
+5. For checking the hash password calculation.
+   "https://xorbin.com/tools/sha256-hash-calculator"
+
+6. GO to settings.py and check under the INSTALLED_APPS that admin, auth and contenttypes are in there
+
+7. Go to the settings.py and pass a list of password hashes you want to try. DO it anywhere in the settings.py file like:
+  
+  PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+ ]
+
+8. Add extra password validations
+
+9. Create a new model and create the relationship with the User model and add some attributes.
+
+10. In order to work with images with Python we will need to install the Python Imaging Library with:
+   pip install pillow
+
+
+   #################### LOGIN AND LOGOUT###############################
+
+1. Go to the settings.py, and add:
+   LOGIN_URL = '/basic_app/user_login'
+
+2. setting up the login.html
+
+3. set up views.py file
